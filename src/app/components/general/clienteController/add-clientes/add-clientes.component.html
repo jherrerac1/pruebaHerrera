@@ -1,0 +1,182 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2"></div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title"> <i class="fa fa-info-circle"></i>Ingrese datos del cliente</h3>
+                        </div>
+                        <form (ngSubmit)="onSubmit( form )" #form="ngForm" name="frm" id="frm" class="form-horizontal"
+                            method="post">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Cod_Clt</label>
+                                            <input type="text" [(ngModel)]="cliente.cod_clt" name ='cod_clt'  class="form-control" id="cod_clt" placeholder="Enter cod">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Nombre</label>
+                                            <input type="text" [(ngModel)]="cliente.nombre" name ='nombre'  class="form-control" id="nombre" placeholder="Ingrese Nombre">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Apellido</label>
+                                            <input type="text" [(ngModel)]="cliente.apellido" name ='apellido'  class="form-control" id="apellido" placeholder="Ingrese Apellido">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Identificaci&oacute;n</label>
+                                            <input type="text" [(ngModel)]="cliente.dni" name ='dni'  class="form-control" id="dni" placeholder="Ingrese CI">
+                                          </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Pais</label>
+                                            <select [(ngModel)]="cliente.pais" name ='pais'  class="form-control" onchange="cosultaProvincia(this.value)" >
+                                                    <option value="{{dato.id}}" *ngFor="let dato of pais">{{dato.descripcion}}</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Provincia</label>
+                                            <select [(ngModel)]="cliente.provincia" name ='cmb_provincia'  class="form-control" id="cmb_provincia" onchange="consultaCiudad(this.value)" >
+                                                <option value="-" ></option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Ciudad</label>
+                                            <select [(ngModel)]="cliente.ciudad" name ='cmb_ciudad' id="cmb_ciudad" class="form-control" onchange="consultaLocalidad(this.value)" >
+                                                <option value="-" ></option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Localidad</label>
+                                            <select [(ngModel)]="cliente.localidad" name ='cmb_localidad' id="cmb_localidad" class="form-control"  >
+                                                <option value="-" ></option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Direccion</label>
+                                            <input type="text" [(ngModel)]="cliente.direccion" name ='direccion'  class="form-control"  placeholder="">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Referencia</label>
+                                            <input type="text" [(ngModel)]="cliente.referencia" name ='referencia'  class="form-control"  placeholder="">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">E-m@il</label>
+                                            <input type="mail" [(ngModel)]="cliente.mail" name ='mail'  class="form-control"  placeholder="mail">
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Coordenadas</label>
+                                            <input type="text" [(ngModel)]="cliente.coordenadas" name ='coordenadas'  class="form-control"  placeholder="">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Telefono</label>
+                                            <input type="text" [(ngModel)]="cliente.telef" name ='telef'  class="form-control"  placeholder="">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Telefono Adic</label>
+                                            <input type="text" [(ngModel)]="cliente.telef_adic" name ='telef_adic'  class="form-control"  placeholder="">
+                                          </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Tipo Cliente</label>
+                                            
+                                            <select name ='idTipo' [(ngModel)]="tipoCliente.id_tipo" class="form-control"  (change)="asiganrTipo($event)" >
+                                                <option  value="{{dato.id_tipo}}" selected=true *ngFor="let dato of tipos">
+                                                    {{dato.descripcion}}
+                                                </option>
+                                                
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Discapacitado/Mayor edad</label>
+                                            <select [(ngModel)]="cliente.discapacidad" name="discapacidad" class="form-control">
+                                                <option value="1" >SI</option>
+                                                <option value="0"> NO</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Estado</label>
+                                            <select [(ngModel)]="cliente.estado" name="estado" class="form-control" required>
+                                                <option value="A" selected=true >ACTIVO</option>
+                                                <option value="I"> INACTIVO</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <input type="hidden" [(ngModel)]="cliente.id_empresa" name="id_empresa" value="">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Archivos:</label>
+                                                <input   type="file" accept="application/pdf/*"
+                                                    (change)="seleccionarArchivo($event)" id="files" name="files" multiple >
+                                            </div>
+                                            <div class="form-group">
+                                                
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" (click)="cancelar()" class="btn btn-default ">Cancelar</button>
+                                <button type="submit" class="btn btn-success float-right" #btn_guardar>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </section>
+</div>

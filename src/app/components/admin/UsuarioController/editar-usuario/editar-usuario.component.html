@@ -1,0 +1,134 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2"></div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title"> <i class="fa fa-info-circle"></i>Datos de Usuario</h3>
+                        </div>
+                        <form (ngSubmit)="onSubmit( form )" #form="ngForm" name="frm" id="frm" class="form-horizontal" method="post">
+                            <div class="card-body">
+                                <input type="hidden" [(ngModel)]="usuario.id_usuario" id="id_usuario" name='id_usuario' value=''>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['nombre'].errors" class="text-danger">Nombre Obligatorio</span>
+                                        <div class="form-group row">
+                                            <!--<span *ngIf="form.submitted && form.controls['nombre'].errors" class="text-danger">Nombre Obligatorio</span>-->
+                                            <label class="col-sm-3 col-form-label">Nombres</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="usuario.nombre" type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese Nombre" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['apellido'].errors" class="text-danger">Raz&oacute;n Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Apellidos</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="usuario.apellido " type="text" class="form-control" name="apellido" placeholder="Ingrese Apellido  " required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['userName'].errors" class="text-danger">Ruc es Obligatorio</span>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">User</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="usuario.user_name" type="text" class="form-control" name="userName" placeholder="Ingrese nombre de usuario" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['password'].errors" class="text-danger">Direcci&oacute;n es Obligatorio</span>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Password</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="usuario.password" type="password" class="form-control" name="password" placeholder="Ingrese direcci&oacute;n " >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <span *ngIf="form.submitted && form.controls['empresa'].errors" class="text-danger">Pa&iacute;s es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Empresa</label>
+                                            <div class="col-sm-9">
+                                                <select [(ngModel)]="usuario.id_empresa" name="empresa" class="form-control">
+                                                    <option value="{{dato.id_empresa}}" *ngFor="let dato of empresas">
+                                                    {{dato.razon_social}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['perfil'].errors" class="text-danger">Perfil es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Perfil</label>
+                                            <div class="col-sm-8">
+                                                <select [(ngModel)]="usuario.id_perfil" name="perfil" class="form-control" required>
+                                                    <option value="-">-</option>
+                                                    <option value="1">Root</option>
+                                                    <option value="2">Admin</option>
+                                                    <option value="3">usuario</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <span *ngIf="form.submitted && form.controls['estado'].errors" class="text-danger">Pa&iacute;s es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">estado</label>
+                                            <div class="col-sm-8">
+                                                <select [(ngModel)]="usuario.estado" name="estado" class="form-control" required>
+                                                    <option value="A" selected=true >ACTIVO</option>
+                                                    <option value="I"> INACTIVO</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" (click)="cancelar()" class="btn btn-default ">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-success float-right" #btn_guardar>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /.content -->
+</div>
+
+<!-- /.content-wrapper -->

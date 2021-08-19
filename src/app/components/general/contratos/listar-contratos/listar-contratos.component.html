@@ -1,0 +1,64 @@
+
+<div class="content-wrapper" style="min-height: 249px;">
+    <div class="content-header">
+        <div class="container-fluid">
+            <!--<div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Dashboard v2</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard v2</li>
+                </ol>
+              </div>
+            </div>/.row -->
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-secondary">
+                        <div class="card-header ">
+                            <h3 class="card-title">
+                                <i class="fas fa-list"></i> Clientes</h3>
+                            <div class="card-tools">
+                                <!--<button type="button" (click)="nuevo()" class="btn btn-success" title="Nueva Usuario">
+                                    <i class="fas fa-plus-circle"></i>Nuevo</button>-->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!--[dtTrigger]="dtTrigger"-->
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" >
+                                <thead>
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Tipo</th>
+                                        <th>ACCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="datos" name="datos">
+                                    <tr *ngFor="let c of contratos">
+                                        <td>{{c.apellido}} {{c.nombre}}</td>
+                                        <td>{{c.comercio}} </td>
+                                        <td ><button type="button" (click)="nuevo(c.id_cliente,c.id_tipo)" class="btn btn-success" title="Nueva Contrato">
+                                            <i class="fas fa-plus-circle"></i>Generar Contrato</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

@@ -1,0 +1,152 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2"></div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <section class="content ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title"> <i class="fa fa-info-circle"></i>Generacion Contrato</h3>
+                        </div>
+                        <form (ngSubmit)="onSubmit( form )" #form="ngForm" name="frm" id="frm" class="form-horizontal"
+                            method="post">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>CLIENTE</label>
+
+                                            <input class="form-control" [(ngModel)]=" cliente.nombre " name="nombre"
+                                                type="text" disabled="true">
+                                            <input class="form-control" [(ngModel)]=" cliente.apellido" name="apellido"
+                                                type="text" disabled="true">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <span *ngIf="form.submitted && form.controls['plan'].errors"
+                                        class="text-danger">*SELECCIONE PLAN A CONTRATAR</span>
+                                        <div class="form-group">
+                                            <label>Planes</label>
+                                            <select [(ngModel)]="contrato.id_plan" class="form-control" name="plan"
+                                                id="plan" required (change)='buscarPlanId($event)'>
+                                                <option value="{{plan.id_plan}}" *ngFor="let plan of planes">
+                                                    {{plan.descripcion}} valor mensual {{plan.val_mensual}}$
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <span *ngIf="form.submitted && form.controls['val_install'].errors"
+                                        class="text-danger">*VALOR INSTALACION ES NECESARIO</span>
+                                        <div class="form-group">
+                                            <label>Val. Instalacion</label>
+                                            <input class="form-control text-right" 
+                                                [(ngModel)]="contrato.val_install" name="val_install" id="val_install" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <span *ngIf="form.submitted && form.controls['fecha_corte'].errors"
+                                        class="text-danger">*INGRESE FECHA DE REGISTRO</span>
+                                        <div class="form-group">
+                                            <label>Fecha </label>
+                                            <input class="form-control" type="date" name="fecha_corte"
+                                                [(ngModel)]="contrato.fecha_corte" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <h4 class="text-secondary">Arriendo de Equipos</h4>
+                                    <hr>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Marca</label>
+                                            <select class="form-control" name="cmb_marca1" id="cmb_marca1"  onchange="buscarModelos('cmb_modelo1',this.value)">
+                                                <option selected value='-'>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Modelo</label>
+                                            <select class="form-control" name="cmb_modelo1" id="cmb_modelo1"  onchange="buscarEquipos('cmb_equipo1',this.value,'A')">
+                                                <option selected value='-'>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['cmb_equipo1'].errors"
+                                        class="text-danger">*Seleccione equipo a arrendar</span>
+                                        <div class="form-group">
+                                            <label>Equipo a Arrendar</label>
+                                            <select [(ngModel)]="Equipos.equiArriendo" class="form-control" name="cmb_equipo1" id="cmb_equipo1"  (change)="EquipoArr($event)" required>
+                                                <option selected value='-'>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <h4 class="text-secondary">Compra de Equipos</h4>
+                                    <hr><br>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Marca</label>
+                                            <select class="form-control" name="cmb_marca2" id="cmb_marca2"  onchange="buscarModelos('cmb_modelo2',this.value)">
+                                                <option selected value='-'>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Modelo</label>
+                                            <select class="form-control" name="cmb_modelo2" id="cmb_modelo2"  onchange="buscarEquipos('cmb_equipo2',this.value,'C')">
+                                                <option selected value='-'>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['cmb_equipo2'].errors"
+                                        class="text-danger">*Seleccione equipo Comprado por cliente</span>
+                                        <div class="form-group">
+                                            <label>Equipo Compra</label>
+                                            <select [(ngModel)]="Equipos.equiCompra" class="form-control" name="cmb_equipo2" id="cmb_equipo2" (change)="valorEquipo($event)" required>
+                                                <option selected value='-'>-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label>Valor</label>
+                                            <input [(ngModel)]="Equipos.val_equipoC" class="form-control text-right" name="val_equipo"
+                                                 name="val_equipo" id="val_equipo"
+                                                value="" readonly='true'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" (click)="cancelar()" class="btn btn-default ">Cancelar</button>
+                                <button type="submit" class="btn btn-success float-right" #btn_guardar>Grabar
+                                    Contrato</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </section>
+</div>

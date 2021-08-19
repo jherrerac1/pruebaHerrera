@@ -1,0 +1,73 @@
+
+<div class="content-wrapper" style="min-height: 249px;">
+    <div class="content-header">
+        <div class="container-fluid">
+            <!--<div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Dashboard v2</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard v2</li>
+                </ol>
+              </div>
+            </div>/.row -->
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-secondary">
+                        <div class="card-header ">
+                            <h3 class="card-title">
+                                <i class="fas fa-list"></i> Clientes</h3>
+                            <div class="card-tools">
+                                <!--<button type="button" (click)="nuevo()" class="btn btn-success" title="Nueva Usuario">
+                                    <i class="fas fa-plus-circle"></i>Nuevo</button>-->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!--[dtTrigger]="dtTrigger"-->
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" >
+                                <thead>
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Tipo</th>
+                                        <th>Plan Contratado</th>
+                                        <th>Contrato</th>
+                                        <th>Anexos</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="datos" name="datos">
+                                    <tr *ngFor="let c of contratos">
+                                        <td>{{c.apellido}} {{c.nombre}}</td>
+                                        <td>{{c.tipo}} </td>
+                                        <td>{{c.nombreplan}}</td>
+                                        <td ><button type="button" (click)="generaContrato(c.id_empresa,c.id_cliente,c.id_plan,c.id_contrato)" class="btn btn-default" title="Contrato">
+                                            <i class="fas fa-file-download"></i>Contrato</button></td>
+                                        <td>
+                                            <button type="button" (click)="generaAnexo1(c.id_empresa,c.id_cliente,c.id_plan,c.id_contrato)" class="btn btn-success" title="Contrato"><i class="fas fa-file-download"></i> A1</button>
+                                            <button type="button" (click)="generaAnexo2(c.id_empresa,c.id_cliente,c.id_plan,c.id_contrato)" class="btn btn-primary" title="Contrato"><i class="fas fa-file-download"></i> A2</button>
+                                            <button type="button" (click)="generaAnexo3(c.id_empresa,c.id_cliente,c.id_plan,c.id_contrato)" class="btn btn-warning" title="Contrato"><i class="fas fa-file-download"></i> A3</button>
+                                            <button type="button" (click)="generaAnexo4(c.id_empresa,c.id_cliente,c.id_plan,c.id_contrato)" class="btn btn-dark" title="Contrato"><i class="fas fa-file-download"></i> A4</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

@@ -1,0 +1,108 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2"></div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title"> <i class="fa fa-info-circle"></i>Registro de Cobros</h3>
+                        </div>
+                        <!-- <form (ngSubmit)="onSubmit( form )" #form="ngForm" name="frm" id="frm" class="form-horizontal"
+                            method="post">-->
+                        <form (ngSubmit)="onSubmit( form )" #form="ngForm" name="frm" id="frm" class="form-horizontal"
+                            method="post">
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['cmb_cliente'].errors"
+                                            class="text-danger">Seleccione un cliente</span>
+                                        <div class="form-group">
+                                            <label>Cliente</label>
+                                            <select [(ngModel)]="cobro.id_cliente" class="form-control"
+                                                name="cmb_cliente" id="cmb_cliente" required>
+                                                <option value="{{cliente.id_cliente}}" *ngFor="let cliente of clientes">
+                                                    {{cliente.dni}} - {{cliente.nombre | uppercase}}
+                                                    {{cliente.apellido | uppercase}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <span *ngIf="form.submitted && form.controls['comprobante'].errors"
+                                            class="text-danger">Ingrese # de comprobante</span>
+                                        <div class="form-group">
+                                            <label>#Comprobante</label>
+                                            <input [(ngModel)]="cobro.numero_comprobante" type="text" class="form-control"
+                                                name="comprobante" id="comprobante" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <span *ngIf="form.submitted && form.controls['fecha_comprobante'].errors"
+                                            class="text-danger">Seleccione fecha</span>
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <div class="input-group date" id="reservationdate"
+                                                data-target-input="nearest">
+                                                <input type="date"  [(ngModel)]="cobro.fecha_comprobante"
+                                                    id="fecha_comprobante" name="fecha_comprobante" class="form-control"
+                                                    placeholder=""
+                                                    ng-pattern="^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$" required />
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span *ngIf="form.submitted && form.controls['valor'].errors"
+                                        class="text-danger">Debe Ingresar Valor de comprobante</span>
+                                        <div class="form-group">
+                                            <label>Valor</label>
+                                            <input [(ngModel)]="cobro.valor " type="text" class="form-control" name="valor"
+                                                id="valor" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span *ngIf="form.submitted && form.controls['concepto'].errors"
+                                        class="text-danger">Ingrese Concepto de pago</span>
+                                        <div class="form-group">
+                                            <label>concepto</label>
+                                            <input [(ngModel)]="cobro.concepto" class="form-control" name="concepto"
+                                                id="concepto">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>File</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" (click)="resetForm()" class="btn btn-default ">Cancelar</button>
+                                <button type="submit" class="btn btn-success float-right" #btn_guardar>Guardar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+
+</script>

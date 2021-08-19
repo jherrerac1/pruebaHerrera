@@ -1,0 +1,68 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2"></div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <section class="col-lg-12 ">
+                    <!-- Default box -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-user-cog"></i> Usuarios Registrados</h3>
+                            <div class="card-tools">
+                                <button type="button" (click)="nuevoUsuario()" class="btn btn-tool btn-outline-success" title="Nueva Usuario">
+                                    <i class="fas fa-plus-circle"></i>Nuevo</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row m-2">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" [ngStyle]="{'width':'800px'}">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Usuario</th>
+                                            <th>ESTADO</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="datos" name="datos">
+                                        <tr *ngFor="let usuario of usuarios">
+                                            <th>{{usuario.id_usuario}}</th>
+                                            <th>{{usuario.nombre}}</th>
+                                            <th>{{usuario.user_name}}</th>
+                                            <th>{{usuario.estado}}</th>
+                                            <th><button class="btn btn-outline-warning" (click)="editar(usuario)"><i class="fa fa-edit"></i>Editar</button></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+
+                        </div>
+                        <!-- /.card-footer-->
+                    </div>
+                    <!-- /.card -->
+                </section>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,290 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2"></div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title"> <i class="fa fa-info-circle"></i>Datos de Empresa</h3>
+                        </div>
+                        <form (ngSubmit)="onSubmit( form )" #form="ngForm" name="frm" id="frm" class="form-horizontal"
+                            method="post">
+                            <div class="card-body">
+
+                                <input type="hidden" [(ngModel)]="empresa.logo_route" name="logo_route" id="logo_route">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['nombre'].errors"
+                                            class="text-danger">Nombre Obligatorio</span>
+                                        <div class="form-group row">
+                                            <!--<span *ngIf="form.submitted && form.controls['nombre'].errors" class="text-danger">Nombre Obligatorio</span>-->
+                                            <label class="col-sm-3 col-form-label">Nombre</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.nombre" type="text" class="form-control"
+                                                    name="nombre" id="nombre" placeholder="Ingrese Nombre" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['razon_social '].errors"
+                                            class="text-danger">Raz&oacute;n Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Raz&oacute;n Soc.</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.razon_social " type="text"
+                                                    class="form-control" name="razon_social "
+                                                    placeholder="Ingrese razon social  " required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['ruc'].errors"
+                                            class="text-danger">Ruc es Obligatorio</span>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">R.U.C</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.ruc" type="text" class="form-control"
+                                                    name="ruc" placeholder="Ingrese ruc" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['direccion'].errors"
+                                            class="text-danger">Direcci&oacute;n es Obligatorio</span>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Direcci&oacute;n</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.direccion" type="text" class="form-control"
+                                                    name="direccion" placeholder="Ingrese direcci&oacute;n " required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['telefono'].errors"
+                                            class="text-danger">Telefono es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Telefono 1</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.telefono" type="text" class="form-control"
+                                                    name="telefono" placeholder="Ingrese telefono " required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">telefono Add</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.telefono_add" type="text"
+                                                    class="form-control" name="telefono_add"
+                                                    placeholder="Ingrese telefono adicional ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['representante_legal'].errors"
+                                            class="text-danger">Ingrese Representante</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Repre. Legal</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.representante_legal" type="text"
+                                                    class="form-control" name="representante_legal"
+                                                    placeholder="Ingrese Nombre Representante" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['dni'].errors"
+                                            class="text-danger">Ingrese Identificacion</span>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Identificaci&oacute;n</label>
+                                            <div class="col-sm-8">
+                                                <input [(ngModel)]="empresa.dni" type="text" class="form-control"
+                                                    name="dni" placeholder="Ingrese identificacion Representante "
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['cargo_repre'].errors"
+                                            class="text-danger">Ingrese Cargo</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Cargo:</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.cargo_repre" type="text"
+                                                    class="form-control" name="cargo_repre"
+                                                    placeholder="Ingrese Cargo Representante" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="form.submitted && form.controls['email_repre'].errors"
+                                            class="text-danger">Ingrese correo de contacto</span>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Correo Personal</label>
+                                            <div class="col-sm-8">
+                                                <input [(ngModel)]="empresa.email_repre" type="email"
+                                                    class="form-control" name="email_repre"
+                                                    placeholder="Ingrese email Representante " required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.email" type="email" class="form-control"
+                                                    name="email" placeholder="Ingrese email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Web Site</label>
+                                            <div class="col-sm-9">
+                                                <input [(ngModel)]="empresa.site_web" type="text" class="form-control"
+                                                    name="site_web" placeholder="Ingrese Sitio Web ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['pais'].errors"
+                                            class="text-danger">Pa&iacute;s es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Pa&iacute;s</label>
+                                            <div class="col-sm-9">
+                                                <select [(ngModel)]="empresa.pais" name="pais" id="pais"
+                                                    class="form-control" onchange="cosultaProvincia(this.value)"
+                                                    required>
+                                                    <option value="" selected='true'>Seleccione Pais</option>
+                                                    <option value="{{dato.id}}" *ngFor="let dato of pais">
+                                                        {{dato.descripcion}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['cmb_provincia'].errors"
+                                            class="text-danger">PROVINCIA es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Provincia</label>
+                                            <div class="col-sm-8">
+                                                <select [(ngModel)]="empresa.provincia" name="cmb_provincia"
+                                                    id="cmb_provincia" onchange="consultaCiudad(this.value)"
+                                                    class="form-control" required>
+                                                    <option value="-"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['cmb_ciudad'].errors"
+                                            class="text-danger">Ciudad es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Ciudad</label>
+                                            <div class="col-sm-9">
+                                                <select [(ngModel)]="empresa.ciudad" name="cmb_ciudad" id="cmb_ciudad"
+                                                    class="form-control" onchange="consultaLocalidad(this.value)"
+                                                    required>
+                                                    <option value="-"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Localidad</label>
+                                            <div class="col-sm-9">
+                                                <select [(ngModel)]="empresa.localidad" name="cmb_localidad"
+                                                    id="cmb_localidad" class="form-control">
+                                                    <option value="-"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span *ngIf="form.submitted && form.controls['estado'].errors"
+                                            class="text-danger">Estado es Obligatorio</span>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Estado</label>
+                                            <div class="col-sm-8">
+                                                <select [(ngModel)]="empresa.estado" name="estado" class="form-control"
+                                                    required>
+                                                    <option value="A" selected='true'>ACTIVO</option>
+                                                    <option value="I"> INACTIVO</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Archivos:</label>
+                                            <input type="file" accept="application/pdf/*"
+                                                (change)="seleccionarArchivo($event)" id="file" name="file" >
+                                        </div>
+                                        <div class="form-group">
+                                        <input type="hidden" [(ngModel)]="empresa.logo_route" name='logo_route' id='logo_route'>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" (click)="cancelar()" class="btn btn-default ">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-success float-right"
+                                    #btn_guardar>Guardar</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /.content -->
+</div>
+
+<!-- /.content-wrapper -->

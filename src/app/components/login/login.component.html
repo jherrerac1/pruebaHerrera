@@ -1,0 +1,53 @@
+<app-site-header></app-site-header>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="">
+            <h3><b>SX</b>Console</h3>
+        </a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form (ngSubmit)="onSubmit( form )" #form="ngForm" id="frm_login" name="frm_login" action="" method="post">
+                <span *ngIf="form.submitted && form.controls['txt_usuario'].errors" class="text-danger">Nombre de usuario obligatorio</span>
+                <div class="input-group mb-3">
+                    <input [(ngModel)]="usuario.user_name" required minlength="4" id="txt_usuario" name="txt_usuario" type="text" class="form-control" placeholder="Usuario" #txt_usuario>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user-alt"></span>
+                        </div>
+                    </div>
+                </div>
+                <span *ngIf="form.submitted && form.controls['txt_password'].errors" class="text-danger">Verifique Contraseña</span>
+                <div class="input-group mb-3">
+                    <input [(ngModel)]="usuario.password" required minlength="4" id="txt_password" name="txt_password" type="password" class="form-control" placeholder="Password" #txt_password>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <!--<button type="button" class="btn btn-primary btn-block" (click)="login()">Sign In</button>-->
+                        <button type="submit" class="btn btn-outline-danger btn-block" #btn_ingresar>Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+
+</div>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SXCONSOLE</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- ESTILOS ADMINLTE-->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/libs/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="assets/libs/AdminLTE-3.0.5/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="assets/libs/AdminLTE-3.0.5/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> 
+    <!--DataTables-->
+    <link rel="stylesheet" href="assets/libs/AdminLTE-3.0.5/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="assets/libs/AdminLTE-3.0.5/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="assets/libs/AdminLTE-3.0.5/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="assets/libs/AdminLTE-3.0.5/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="assets/libs/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css">  
+
+
+</head>
+
+<body id="principal_body" name="principal_body">
+    <app-root></app-root>
+
+    <!-- SCRITPT ADMINLTE-->
+    <!-- jQuery -->
+    <script src="assets/libs/AdminLTE-3.0.5/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="assets/libs/AdminLTE-3.0.5/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <!--<script src="assets/libs/AdminLTE-3.0.5/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/AdminLTE-3.0.5/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/AdminLTE-3.0.5/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/AdminLTE-3.0.5/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>-->
+    <!--DATAPICKER-->
+<script src="assets/libs/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/libs/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.es.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="assets/libs/AdminLTE-3.0.5/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- AdminLTE App -->
+    <script src="assets/libs/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
+    <script src="assets/libs/js/general.js"></script>
+
+    <script>
+        $(function () {
+            $('#fecha_comprobante2').datepicker({
+        language: "es",
+        format: 'yyyy-mm-dd'
+    });
+    //cosultaMarcas('cmb_marca1');
+    //cosultaMarcas('cmb_marca2');
+            //console.log("HOLAAAA");
+            /*$("#example1").DataTable({
+              "responsive": true,
+              "autoWidth": false,
+            });*/
+            //Datemask dd/mm/yyyy
+        });
+    </script>
+
+
+</body>
+
+</html>

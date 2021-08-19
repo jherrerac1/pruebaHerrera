@@ -1,0 +1,56 @@
+<div class="content-wrapper" style="min-height: 249px;">
+    <div class="content-header">
+        <div class="container-fluid">
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-secondary">
+                        <div class="card-header ">
+                            <h3 class="card-title">
+                                <i class="fas fa-file-invoice-dollar"></i> CUENTAS POR PAGAR</h3>
+                            <div class="card-tools"></div>
+                        </div>
+                        <div class="card-body">
+                            <!--[dtTrigger]="dtTrigger"-->
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" [ngStyle]="{'width':'800px'}">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>cliente</th>
+                                        <th>Por concepto de</th>
+                                        <th>Descripcion</th>
+                                        <th>ESTADO</th>
+                                        <th>Valor</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="datos" name="datos">
+                                    <tr *ngFor="let c of cobros;let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{c.nombre.trim() +'' +c.apellido.trim()}}</td>
+                                        <td>{{c.concept_full}}</td>
+                                        <td>{{c.descripcion.trim()}}</td>
+                                        <td>{{c.estatus}}</td>
+                                        <td>{{c.valor+'$'}}</td>
+                                        <td><button class="btn btn-secondary" (click)="editar(c.id_cobro)"><i class="fa fa-cash-register"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
